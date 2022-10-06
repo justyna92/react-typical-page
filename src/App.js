@@ -13,10 +13,7 @@ function App() {
     if (storedUserLoggedInInformation === '1') {
       setIsLoggedIn(true);
     }
-    console.log('useEffect');
   }, []);
-
-  console.log('rendering');
 
   const loginHandler = (email, password) => {
     // We should of course check email and password
