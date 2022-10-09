@@ -37,15 +37,18 @@ const Login = (props) => {
     isValid: null,
   });
 
+  const { isValid: emailIsValid } = emailState;
+  const { isValid: passwordIsValid } = passwordState;
+
   useEffect(() => {
     const timerId = setTimeout(() => {
-      setFormIsValid(emailState.isValid && passwordState.isValid);
+      setFormIsValid(emailIsValid && passwordIsValid);
     }, 500);
 
     return () => {
       clearTimeout(timerId);
     };
-  }, [emailState.isValid, passwordState.isValid]);
+  }, [emailIsValid, passwordIsValid]); // or the dot notation approach without destructuring
 
   const emailChangeHandler = (event) => {
     dispatchEmail({ type: 'UPDATE_EMAIL', payload: event.target.value });
