@@ -3,12 +3,15 @@ import { createRoot } from 'react-dom/client';
 
 import './style.css';
 import App from './App';
+import { AuthContextProvider } from './store/auth-context';
 
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 
 root.render(
   <StrictMode>
-    <App />
+    <AuthContextProvider>
+      <App />
+    </AuthContextProvider>
   </StrictMode>
 );
